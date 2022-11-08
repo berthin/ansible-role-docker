@@ -25,7 +25,6 @@
     state: present
   when: ansible_distribution == 'Ubuntu' and ansible_distribution_version is version('20.04', '>=')
 
-
 - name: Add Docker GPG apt Key
   apt_key:
     url: "{{ docker_apt_gpg_key }}"
