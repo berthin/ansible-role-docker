@@ -38,7 +38,7 @@
 - name: Ensure curl is present (on older systems without SNI).
   package: name=curl state=present
   when: >
-    add_repository_key.skipped
+    (add_repository_key is skipped)
     or (add_repository_key is failed)
 
 - name: Add Docker apt key (alternative for older systems without SNI).
@@ -47,7 +47,7 @@
   args:
     warn: false
   when: >
-    add_repository_key.skipped
+    (add_repository_key is skipped)
     or (add_repository_key is failed)
 
 - name: Add Docker repository.
